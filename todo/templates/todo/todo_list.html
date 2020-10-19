@@ -6,6 +6,20 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>This i gotta do</h1>
+  <h1>This i gotta do:</h1>
+  <table>
+    {% for item in items %}
+      <tr>
+        {% if item.done %}
+          <td><strike>{{item.name}}</strike></td>
+        {% else %}
+          <td>{{item.name}}</td>
+        {% endif %}
+      </tr>
+    {% empty %}
+    <tr><td>You got nothing todo! Forget about it</td></tr>
+    {% endfor %}
+  </table>
+  <a href="/add">Add Item</a>
 </body>
 </html>
